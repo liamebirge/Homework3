@@ -1,0 +1,80 @@
+<html>
+	<head>
+		<title>Animal List</title>
+		<style type="text/css">
+			section{
+				height:500px;
+				width:100%;
+			}
+			footer{
+				position: relative;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				padding: 1em;
+				background-color: #efefef;
+				text-align: center;
+				height:50px;
+			}
+			.contentBox{
+				margin:50px;
+				margin-left: 35%;
+			}
+			header{
+				text-align: center;
+			}
+		</style>
+		<script type="text/javascript">
+			var list, counter, input, node, textNode, counterInt;
+			function setup(){
+				input = document.getElementById("input1");
+				counter = document.getElementById("count");
+				list = document.getElementById("list");
+				counterInt = 0;
+
+				node = document.createElement("LI");
+				textNode = document.createTextNode(input.value);
+
+				for(var i = 0; i < list.childNodes.length; i++){
+					if (list.childNodes[i].nodeName == "LI"){
+						counterInt++;
+					}
+				}
+			}
+			function addAnimal(){
+				setup();
+				node.appendChild(textNode);
+				list.appendChild(node);
+
+				input.value = "";
+				counter.innerHTML = (counterInt + 1);
+			}
+		</script>
+	</head>
+	<body>
+		<header>
+			<h1><u>Animal List</u></h1>
+		</header>
+		<section>
+			<div class="contentBox">
+				# List Elements: <div id="count">3</div>
+				<ul id="list">
+					<li>Cat</li>
+					<li>Dog</li>
+					<li>Fish</li>
+				</ul>
+				<input autofocus="true" id="input1" />
+				<button onclick="addAnimal()">Enter An Animal</button>
+			</div>
+		</section>
+		<footer>
+			<div class="footerText">
+				<p>
+					<author>Liam English-Birge</author> 
+					&nbsp;&nbsp; 
+					Last updated: <date>9/21/17</date>
+				</p>
+			</div>
+		</footer>
+	</body>
+</html>
